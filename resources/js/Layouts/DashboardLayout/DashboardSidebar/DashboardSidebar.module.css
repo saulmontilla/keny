@@ -1,0 +1,63 @@
+.userLogo {
+    border: none;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--ubii-blue);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar:global(.ps-broken) :global(.ps-sidebar-container) {
+    box-shadow: none;
+}
+
+.sidebar:global(.ps-collapsed) :global(.ps-sidebar-container) {
+    padding: 1rem 0;
+    justify-content: center;
+}
+
+.sidebarHeader {
+    display: flex;
+}
+
+.sidebar:global(.ps-collapsed) .sidebarHeader {
+    justify-content: center;
+}
+
+.sidebar:global(.ps-collapsed) .userInfoContainer {
+    display: none;
+}
+
+.userInfoContainer {
+    flex-grow: 1;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottomContainer {
+    margin-top: auto !important;
+    color: var(--ubii-red);
+    padding-bottom: 2rem;
+}
+
+.collapseButton {
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .collapseButton {
+        display: none;
+    }
+}

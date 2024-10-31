@@ -1,0 +1,41 @@
+.navbar {
+    height: 3.5rem;
+    background-color: #fff;
+    display: flex;
+    padding: .5rem 1rem;
+    border-radius: 0px 0px 10px 10px;
+    background: #FFF;
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.10);
+    justify-content: space-between;
+}
+
+.ubiiLogo {
+    width: 4rem;
+    height: auto;
+}
+
+.userLogo {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.togglerButton {
+    cursor: pointer;
+}
+
+.navEnd {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .navEnd>* {
+        margin-left: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .togglerButton {
+        display: none;
+    }
+}

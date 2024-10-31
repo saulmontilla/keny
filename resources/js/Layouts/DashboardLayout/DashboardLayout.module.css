@@ -1,0 +1,17 @@
+.mainContainer {
+    background-color: #F5F5F5;
+    padding-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .mainContainer {
+        height: 100vh;
+        overflow-y: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContainer {
+        padding: 0;
+    }
+}

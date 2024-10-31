@@ -8,4 +8,5 @@ Route::group([
     'middleware' => 'auth',
 ], function () {
     include __DIR__ . '/service.php';
+    include __DIR__ . '/menu.php';
 });
