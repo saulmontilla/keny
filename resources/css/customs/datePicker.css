@@ -1,0 +1,7 @@
+.react-datepicker__month .react-datepicker__month-text {
+    width: 5rem !important;
+}
+
+.react-datepicker-popper {
+    z-index: 2 !important;
+}

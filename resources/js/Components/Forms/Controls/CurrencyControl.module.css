@@ -1,0 +1,37 @@
+.symbolContainer {
+    position: absolute;
+    top: 0.6rem;
+    left: 1.2rem;
+    font-size: 1.4rem;
+    width: 2rem;
+    text-align: right;
+}
+
+.symbolContainer:global(.material) {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: var(--ubii-gray);
+    margin-top: .2em;
+}
+
+.withSymbolPadding {
+    padding-left: 3.5rem;
+}
+
+.withSymbolPadding:global(.material) {
+    padding-left: 4rem !important;
+}
+
+.conversionContainer {
+    display: block;
+    font-size: 1.4rem;
+    padding-left: 1rem;
+    margin: 0.5rem;
+}
+
+.conversionSymbol {
+    width: 2rem;
+    text-align: right;
+    display: inline-block;
+    margin-right: 0.4rem;
+}

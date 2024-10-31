@@ -1,0 +1,7 @@
+.bg-u-blue {
+    background-color: var(--ubii-light-blue) !important;
+}
+
+.bg-u-blue .progress-bar {
+    background-color: var(--ubii-blue) !important;
+}

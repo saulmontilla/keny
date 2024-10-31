@@ -1,0 +1,6 @@
+.alert-u-danger {
+    background-color: #f4f5f8 !important;
+}
+.alert-u-danger h2 {
+    color: var(--ubii-blue);
+}

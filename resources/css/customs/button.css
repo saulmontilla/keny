@@ -1,0 +1,100 @@
+[class*="btn-u"],
+[class*="btn-outline-u"] {
+    padding: .5em;
+    font-size: 1rem;
+    border-radius: 16px !important;
+}
+
+/*--- Colores botón básico ---*/
+.btn-u-blue {
+    color: #fff !important;
+    background-color: var(--ubii-blue) !important;
+}
+
+.btn-u-blue:hover {
+    background-color: var(--ubii-dark-blue) !important;
+    color: #fff !important;
+}
+
+.btn-u-red {
+    color: #fff !important;
+    background-color: var(--ubii-red) !important;
+}
+
+.btn-u-red:hover {
+    color: #fff !important;
+    background-color: var(--ubii-dark-red) !important;
+}
+
+.btn-u-green {
+    color: #fff !important;
+    background-color: var(--ubii-green) !important;
+}
+
+.btn-u-green:hover {
+    color: #fff !important;
+    background-color: var(--ubii-dark-green) !important;
+}
+
+.btn-u-white {
+    color: var(--ubii-black) !important;
+    background-color: #fff !important;
+    border: 1px solid #D0D5DD !important;
+}
+
+.btn-u-white:hover {
+    background-color: #d3d4d5 !important;
+}
+
+.btn-u-gray {
+    color: #525252 !important;
+    background-color: #DADADA !important;
+}
+
+.btn-u-gray:hover {
+    background-color: #b4b4b4 !important;
+}
+
+.btn-login {
+    border: solid 1px #c7d7e4;
+    background-color: #1bc2ff !important;
+    border-color: #1bc2ff !important;
+    padding: 1rem 0;
+    border-radius: 10px;
+    color: #fafdff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.btn-u-copy {
+    border-radius: 50%;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.btn-u-copy:hover {
+    background-color: #bfe7fe;
+}
+
+/*--- Colores botón outline ---*/
+.btn-outline-u-blue {
+    background: #fff !important;
+    color: var(--ubii-blue) !important;
+    border: 1px solid var(--ubii-blue) !important;
+}
+
+.btn-outline-u-blue:hover {
+    background: var(--ubii-blue) !important;
+    color: #fff !important;
+}
+
+/*--- Forma de píldora ---*/
+.btn-u-pill {
+    max-height: 2.4em;
+    border-radius: 1rem;
+}
+
+button.close {
+    font-size: 2rem;
+}

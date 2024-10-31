@@ -1,0 +1,22 @@
+:root {
+	--register-navbar-background: #fff;
+	--register-welcome-card-background: #fff;
+	--register-welcome-card-backgroundHover: linear-gradient(180deg, #02A3FD 0%, #35C9E5 100%);
+	--register-welcome-icon: url(#paint0_linear_17_3565);
+	--register-welcome-icon-hover: #fff;
+	--ubii-black: #202124;
+	--ubii-gray: #797E83;
+	--ubii-gray-2: #ADADAD;
+	--ubii-light-gray: #C7CED6;
+	--ubii-blue: #00A1FD;
+	--ubii-blue-secondary: #00A1FD;
+	--ubii-light-blue: #50C9FF26;
+	--ubii-dark-blue: #006BF2;
+	--ubii-dark-blue-2: #0e92c3;
+	--ubii-success: #07e22c;
+	--ubii-green: #07e22c;
+	--ubii-dark-green: #04b121;
+	--ubii-red: #f25757;
+	--ubii-dark-red: #cf4242;
+	--ubii-yellow: #fecf33;
+}

@@ -1,0 +1,17 @@
+.btn-flags-u {
+    color: #495057 !important;
+    background-color: #fff !important;
+    background-clip: padding-box !important;
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 4px !important;
+}
+
+.btn-flags-u:hover,
+.btn-flags-u:active,
+.btn-flags-u:focus {
+    box-shadow: 0 2px 4px 0 rgb(114 156 203 / 50%) !important;
+    border: solid 1px #00b2ff !important;
+}
+.btn-flags-u.is-invalid {
+    border-color: #fd3995 !important;
+}

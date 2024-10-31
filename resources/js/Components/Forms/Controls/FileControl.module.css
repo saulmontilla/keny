@@ -1,0 +1,55 @@
+.inputContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    background: #efefef;
+    color: #000;
+    padding: 0.1em 0.5em;
+    border: 1px solid black;
+    margin: 0;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.inputContainer:hover {
+    background: #e5e3e3;
+}
+
+.inputContainer:focus {
+    background: #e5e3e3;
+    outline: none;
+}
+
+.inputContainer.notClickable {
+    cursor: default;
+}
+
+.inputContainer.notClickable:hover, .inputContainer.notClickable:focus {
+    background-color: initial;
+}
+
+.inputContainer .text {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: .5rem;
+}
+
+.paymentButton {
+    background: #9ad5ee;
+    border: none;
+    border-radius: 5px;
+    color: var(--ubii-black);
+    padding: 0.5rem 1rem;
+    font-family: 'Nexa', Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.paymentButton:hover,
+.paymentButton:focus {
+    background: #93cbe3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgb(57 165 253 / 25%);
+    box-shadow: 0 0 0 0.2rem rgb(57 165 253 / 25%);
+}

@@ -1,0 +1,20 @@
+@media (min-width: 768px) {
+    .border-md-right {
+        border-right: 1px solid #dee2e6 !important;
+    }
+    .border-md-right-0 {
+        border-right: none !important;
+    }
+    .border-md-bottom {
+        border-bottom: 1px solid #dee2e6 !important;
+    }
+    .border-md-bottom-0 {
+        border-bottom: none !important;
+    }
+    .border-md-left {
+        border-left: 1px solid #dee2e6 !important;
+    }
+    .border-md-left-0 {
+        border-left: none !important;
+    }
+}

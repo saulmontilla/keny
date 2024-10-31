@@ -1,0 +1,105 @@
+/*--- Colores ---*/
+.text-u-black {
+    color: var(--ubii-black);
+}
+
+.text-u-blue {
+    color: var(--ubii-blue);
+}
+
+.text-u-light-blue {
+    color: var(--ubii-light-blue);
+}
+
+.text-u-dark-blue {
+    color: var(--ubii-dark-blue);
+}
+
+.text-u-dark-blue-2 {
+    color: var(--ubii-dark-blue-2);
+}
+
+.text-u-gray {
+    color: var(--ubii-gray) !important;
+}
+
+.text-u-gray-2 {
+    color: var(--ubii-gray-2);
+}
+
+.text-u-light-gray {
+    color: var(--ubii-light-gray);
+}
+
+.text-u-light-gray-left {
+    color: var(--ubii-light-gray);
+    margin-left: 5px;
+}
+
+.text-t-primary {
+    color: var(--theme-primary);
+}
+
+/*--- Weight ---*/
+.fw-u-bold {
+    font-weight: bold !important;
+}
+
+.fw-u-normal {
+    font-family: 'NexaRegular', Arial, sans-serif !important;
+    font-weight: normal !important;
+}
+
+/*--- Forma de botón outline ---*/
+[class*="text-outline"] {
+    border: 1px solid black;
+    padding: .5em 1em;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.text-outline-ubii-blue {
+    color: var(--ubii-blue);
+    border-color: var(--ubii-blue);
+}
+
+/*--- Tamaños ---*/
+.fz-u-08 {
+    font-size: 0.8rem !important;
+}
+
+.fz-u-09 {
+    font-size: 0.9rem !important;
+}
+
+.fz-u-1 {
+    font-size: 1rem !important;
+}
+
+.fz-u-12 {
+    font-size: 1.2rem !important;
+}
+
+.fz-u-14 {
+    font-size: 1.4rem !important;
+}
+
+.fz-u-16 {
+    font-size: 1.6rem !important;
+}
+
+.fz-u-18 {
+    font-size: 1.8rem !important;
+}
+
+.fz-u-2 {
+    font-size: 2rem !important;
+}
+
+.ff-poppins {
+    font-family: 'Poppins' !important;
+}
+
+.text-decoration-none {
+    text-decoration: none !important;
+}

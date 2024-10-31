@@ -1,0 +1,8 @@
+.badge.bg-u-badge {
+    background-color: #E6E6F2 !important;
+    color: #C7CED6;
+}
+
+.badge.bg-u-badge.active {
+    color: #00A1FD !important;
+}

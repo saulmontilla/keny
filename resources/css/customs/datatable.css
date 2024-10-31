@@ -1,0 +1,12 @@
+.card-table {
+    background-color: transparent !important;
+}
+
+.rdt_TableHeadRow .rdt_TableCol {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.rdt_TableRow:hover {
+    background-color: #fff;
+}

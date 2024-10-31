@@ -1,0 +1,276 @@
+.invalid-feedback.ubii-invalid {
+    font-size: 1em;
+    display: block;
+}
+
+input[type="text"].b-border,
+input[type="tel"].b-border {
+    border: 0;
+    border-bottom: 2px solid var(--ubii-light-gray);
+    border-radius: 0;
+    outline: none !important;
+}
+
+input[type="text"].b-border:hover,
+input[type="text"].b-border:focus,
+input[type="tel"].b-border:hover,
+input[type="tel"].b-border:focus {
+    box-shadow: none;
+}
+
+.input-b-border {
+    display: none;
+}
+
+input[type="text"].b-border~.input-b-border,
+input[type="tel"].b-border~.input-b-border {
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: var(--ubii-blue);
+    transition: width 0.3s linear;
+    transform: translateY(-2px);
+}
+
+input[type="text"].b-border:focus~.input-b-border,
+input[type="text"].b-border:hover~.input-b-border,
+input[type="tel"].b-border:focus~.input-b-border,
+input[type="tel"].b-border:hover~.input-b-border {
+    width: 100%;
+}
+
+input[type="text"].material,
+input[type="tel"].material,
+input[type="password"].material,
+select.material {
+    margin-top: 1.2rem;
+    padding: 1rem 1.5rem;
+}
+
+.select2.material>div {
+    margin-top: 1.1rem;
+    padding: .7rem 0;
+}
+
+input[type="text"].material~label,
+input[type="tel"].material~label,
+input[type="password"].material~label {
+    position: absolute;
+    top: 50%;
+    left: 1em;
+    font-weight: 100;
+    transition: all .1s linear;
+    cursor: text;
+    transform: translateY(-50%);
+    color: var(--ubii-gray);
+}
+
+.select2.material~label {
+    position: absolute;
+    top: -.8em;
+    left: 1em;
+    font-weight: 100;
+    background-color: #fff;
+    font-size: .8rem;
+    padding: 0 .3rem;
+    color: var(--ubii-gray);
+}
+
+input[type="text"].material:focus~label,
+input[type="text"].material-filled~label,
+input[type="password"].material:focus~label,
+input[type="password"].material-filled~label,
+input[type="tel"].material:focus~label,
+input[type="tel"].material-filled~label {
+    top: .1em;
+    left: 1em;
+    font-size: .8rem;
+    background: white;
+    padding: 0 .3rem;
+}
+
+select.material~label {
+    position: absolute;
+    top: -.6em;
+    left: 1em;
+    font-size: .8rem;
+    background: white;
+    padding: 0 .3rem;
+    color: var(--ubii-gray);
+    font-weight: 100;
+}
+
+label.material {
+    background: white;
+    padding: 0 .3rem;
+    color: var(--ubii-gray);
+    font-weight: 100;
+    font-size: .8rem;
+    position: absolute;
+    top: .7em;
+    left: 1.5em;
+    z-index: 1;
+}
+
+input[type="text"].material:focus~label,
+input[type="tel"].material:focus~label,
+input[type="password"].material:focus~label,
+.select2.material:has(:focus)~label,
+select.material:focus~label,
+.date-picker-container.material:has(:focus) label,
+.flags-select-container.material:has(:focus) label {
+    color: var(--ubii-blue);
+}
+
+input[type="text"].material.is-invalid~label,
+input[type="tel"].material.is-invalid~label,
+input[type="password"].is-invalid~label,
+.select2.material.is-invalid:has(:focus)~label,
+select.material.is-invalid:focus~label,
+.date-picker-container.material.is-invalid:has(:focus) label,
+.flags-select-container.material.is-invalid:has(:focus) label {
+    color: var(--ubii-red);
+}
+
+.flags-select-container .loading-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.date-picker-container {
+    position: relative;
+}
+
+.date-picker-container.material label {
+    position: absolute;
+    top: .5em;
+    left: 1em;
+    font-size: .8rem;
+    background: white;
+    padding: 0 .3rem;
+    color: var(--ubii-gray);
+    font-weight: 100;
+}
+
+.date-picker-container.material input {
+    padding-left: 3.5em;
+}
+
+.date-picker-container.material svg {
+    position: absolute;
+    top: 2em;
+    left: 1.3em;
+}
+
+.flags-select-container {
+    position: relative;
+}
+
+.flags-select-container.material button {
+    padding: .7rem 1.5rem;
+    margin-top: 1.2rem;
+}
+
+.flags-select-container.material label {
+    position: absolute;
+    top: -.8em;
+    left: 1em;
+    font-size: .8rem;
+    background: white;
+    padding: 0 .3rem;
+    color: var(--ubii-gray);
+    font-weight: 100;
+}
+
+.input-icon {
+    position: absolute;
+    right: 0%;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+input.with-icon {
+    padding-right: 4rem !important;
+}
+
+.form-check.label-up {
+    padding: 0;
+    padding-bottom: 1.25rem;
+    display: inline-block;
+}
+
+.form-check.label-up input[type="radio"] {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0;
+}
+
+.form-check.label-down {
+    padding: 0;
+    padding-top: 1.25rem;
+    display: inline-block;
+}
+
+.form-check.label-down input[type="radio"] {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0;
+}
+
+.form-check.label-right {
+    padding: 0;
+    padding-right: 1.25rem;
+    display: inline-block;
+}
+
+.form-check.label-right input[type="radio"] {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    margin-left: 0;
+}
+
+.form-check.label-left {
+    padding: 0;
+    padding-left: 1.25rem;
+    display: inline-block;
+}
+
+.form-check.label-left input[type="radio"] {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin-left: 0;
+}
+
+.u-pos-file-input {
+    background-color: #fff !important;
+    padding: 8px 16px 8px 16px !important;
+    border-radius: 16px !important;
+    border-style: dotted !important;
+    color: var(--ubii-blue) !important
+}
+
+.u-pos-file-input.blue {
+    border-color: var(--ubii-blue) !important;
+}
+
+.u-pos-file-input.blue:hover {
+    background-color: #00A1FD33 !important;
+}
+
+.form-check-input[type=checkbox] {
+    width: 1.2em;
+    height: 1.2em;
+    border: 2px solid #DADADA;
+}
