@@ -1,6 +1,6 @@
 import { Field } from 'formik'
 import React from 'react'
-import { FormikControlTypes, TextControlProps, RadioControlProps, SelectControlProps, PasswordControlProps, CheckboxControlProps, FileControlProps, DatePickerControlProps, CurrencyControlProps, MaskControlProps, CountriesControlProps, CardControlProps, DniControlProps, PhoneControlProps, Select2ControlProps } from 'ubiionline/form'
+import { FormikControlTypes, TextControlProps, RadioControlProps, SelectControlProps, PasswordControlProps, CheckboxControlProps, FileControlProps, DatePickerControlProps, CurrencyControlProps, MaskControlProps, CountriesControlProps, CardControlProps, DniControlProps, PhoneControlProps, Select2ControlProps, TextAreaControlProps } from 'ubiionline/form'
 import CardControl from './CardControl'
 import CheckboxControl from './CheckboxControl'
 import CountriesControl from './CountriesControl'
@@ -15,8 +15,9 @@ import TextControl from './TextControl'
 import DniControl from './DniControl'
 import PhoneControl from './PhoneControl'
 import Select2Control from './Select2Control'
+import TextAreaControl from './TextAreaControl'
 
-export default function FormikControl<C extends FormikControlTypes>({ control, ...rest }: { control: C } & (C extends 'text' ? TextControlProps : C extends 'select' ? SelectControlProps : C extends 'radio' ? RadioControlProps : C extends 'checkbox' ? CheckboxControlProps : C extends 'password' ? PasswordControlProps : C extends 'file' ? FileControlProps : C extends 'date-picker' ? DatePickerControlProps : C extends 'currency' ? CurrencyControlProps : C extends 'mask' ? MaskControlProps : C extends 'countries' ? CountriesControlProps : C extends 'dni' ? DniControlProps : C extends 'phone' ? PhoneControlProps : C extends 'select2' ? Select2ControlProps : CardControlProps)) {
+export default function FormikControl<C extends FormikControlTypes>({ control, ...rest }: { control: C } & (C extends 'text' ? TextControlProps : C extends 'select' ? SelectControlProps : C extends 'radio' ? RadioControlProps : C extends 'checkbox' ? CheckboxControlProps : C extends 'password' ? PasswordControlProps : C extends 'file' ? FileControlProps : C extends 'date-picker' ? DatePickerControlProps : C extends 'currency' ? CurrencyControlProps : C extends 'mask' ? MaskControlProps : C extends 'countries' ? CountriesControlProps : C extends 'dni' ? DniControlProps : C extends 'phone' ? PhoneControlProps : C extends 'select2' ? Select2ControlProps : C extends "card" ? CardControlProps : TextAreaControlProps)) {
     let Component
 
     switch (control) {
@@ -61,6 +62,9 @@ export default function FormikControl<C extends FormikControlTypes>({ control, .
             break
         case 'phone':
             Component = PhoneControl
+            break
+        case 'textarea':
+            Component = TextAreaControl
             break
     }
 

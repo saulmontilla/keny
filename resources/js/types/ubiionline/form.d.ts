@@ -22,6 +22,7 @@ declare module "ubiionline/form" {
         | 'card'
         | 'dni'
         | 'phone'
+        | 'textarea';
 
     interface ErrorMessageControlProps {
         /**
@@ -108,6 +109,10 @@ declare module "ubiionline/form" {
          */
         blockEnter?: boolean;
     } & FormikControlCommonsProps & React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+
+    type TextAreaControlProps = {
+
+    } & FormikControlCommonsProps & React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
 
     type SelectControlProps = {
         options: { name: string, value: string | number }[];
