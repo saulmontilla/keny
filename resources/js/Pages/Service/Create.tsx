@@ -1,14 +1,24 @@
+import CreateServiceForm from '@/Components/Service/CreateServiceForm'
 import DashboardLayout from '@/Layouts/DashboardLayout'
+import { PageProps, PageWithLayout } from '@/types'
 import { usePage } from '@inertiajs/react'
 import React from 'react'
+import { Card } from 'react-bootstrap'
 
-export default function Create() {
-    const props = usePage().props
-
-    console.log(props)
+const Create: PageWithLayout<PageProps> = () => {
     return (
-        <DashboardLayout>
-            <div>Crear servicio</div>
-        </DashboardLayout>
+        <Card>
+            <Card.Body>
+                <h3 className='text-center'>
+                    Crear servicio
+                </h3>
+
+                <CreateServiceForm />
+            </Card.Body>
+        </Card>
     )
 }
+
+Create.layout = page => <DashboardLayout>{page}</DashboardLayout>
+
+export default Create
