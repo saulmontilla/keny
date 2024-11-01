@@ -19,8 +19,8 @@ class MenuSeeder extends Seeder
                 'nombre' => 'Crear servicio',
                 'orden' => 1,
                 'parent_id' => 0,
-                'url' => '/dashboard/services/create',
-                'activo_regexp' => '/dashboard/services/create',
+                'url' => '/dashboard/service/create',
+                'activo_regexp' => '/dashboard/service/create',
                 'icono' => 'service-icon'
             ],
             [
@@ -28,8 +28,8 @@ class MenuSeeder extends Seeder
                 'nombre' => 'Historial de servicios',
                 'orden' => 2,
                 'parent_id' => 0,
-                'url' => '/dashboard/services',
-                'activo_regexp' => '/dashboard/services',
+                'url' => '/dashboard/service',
+                'activo_regexp' => '/dashboard/service',
                 'icono' => 'service-icon'
             ],
         ]);
