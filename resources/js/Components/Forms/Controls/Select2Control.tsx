@@ -13,7 +13,7 @@ export default function Select2Control(props: Select2ControlProps & FieldProps) 
         ...rest
     } = props
 
-    const clientError = getIn(form.errors, `${field.name}.value`)
+    const clientError = getIn(form.errors, `${field.name}`)
     const serverError = serverName && getIn(form.status.errors, serverName)
     const touched = getIn(form.touched, field.name)
 
@@ -23,7 +23,7 @@ export default function Select2Control(props: Select2ControlProps & FieldProps) 
     }
 
     function handleBlur() {
-        form.setFieldTouched(`${field.name}.value`, true, false)
+        form.setFieldTouched(`${field.name}`, true, false)
     }
 
     return <BaseSelect2
