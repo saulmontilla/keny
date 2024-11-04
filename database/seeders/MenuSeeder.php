@@ -16,21 +16,30 @@ class MenuSeeder extends Seeder
         Menu::insert([
             [
                 'id' => 1,
-                'nombre' => 'Crear servicio',
+                'nombre' => 'Servicios',
                 'orden' => 1,
                 'parent_id' => 0,
-                'url' => '/dashboard/service/create',
-                'activo_regexp' => '/dashboard/service/create',
+                'url' => '',
+                'activo_regexp' => '/dashboard/work/*',
                 'icono' => 'service-icon'
             ],
             [
                 'id' => 2,
-                'nombre' => 'Historial de servicios',
+                'nombre' => 'Registrar servicio',
+                'orden' => 1,
+                'parent_id' => 1,
+                'url' => '/dashboard/work/create',
+                'activo_regexp' => '/dashboard/work/create',
+                'icono' => ''
+            ],
+            [
+                'id' => 3,
+                'nombre' => 'Historial',
                 'orden' => 2,
-                'parent_id' => 0,
-                'url' => '/dashboard/service',
-                'activo_regexp' => '/dashboard/service',
-                'icono' => 'service-icon'
+                'parent_id' => 1,
+                'url' => '/dashboard/work',
+                'activo_regexp' => '/dashboard/work',
+                'icono' => ''
             ],
         ]);
     }

@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
-use Inertia\Response;
 
 class ServiceController extends Controller
 {
-    public function create(): Response
+    public function index(): JsonResponse
     {
-        return Inertia::render('Service/Create');
+        $services = Service::all();
+
+        return response()->json($services);
     }
 }

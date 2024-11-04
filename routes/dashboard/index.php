@@ -7,6 +7,6 @@ Route::group([
     'as' => 'dashboard.',
     'middleware' => 'auth',
 ], function () {
-    include __DIR__ . '/service.php';
+    include __DIR__ . '/work.php';
     include __DIR__ . '/menu.php';
 });

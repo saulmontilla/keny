@@ -20,3 +20,4 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
 
 include __DIR__ . '/dashboard/index.php';
+include __DIR__ . '/service.php';

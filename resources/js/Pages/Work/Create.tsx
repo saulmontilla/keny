@@ -1,7 +1,6 @@
-import CreateServiceForm from '@/Components/Service/CreateServiceForm'
+import CreateWorkForm from '@/Components/Work/CreateWorkForm'
 import DashboardLayout from '@/Layouts/DashboardLayout'
 import { PageProps, PageWithLayout } from '@/types'
-import { usePage } from '@inertiajs/react'
 import React from 'react'
 import { Card } from 'react-bootstrap'
 
@@ -10,10 +9,10 @@ const Create: PageWithLayout<PageProps> = () => {
         <Card>
             <Card.Body>
                 <h3 className='text-center'>
-                    Crear servicio
+                    Registrar servicio
                 </h3>
 
-                <CreateServiceForm />
+                <CreateWorkForm />
             </Card.Body>
         </Card>
     )

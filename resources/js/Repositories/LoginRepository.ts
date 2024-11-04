@@ -7,7 +7,7 @@ export class LoginRepository {
     public async login(values: LoginSchema['initialValues'], actions: FormikHelpers<LoginSchema['initialValues']>) {
         try {
             const response = await axios.post('/login', values)
-            router.visit('/dashboard/service/create')
+            router.visit('/dashboard/work/create')
         } catch (error: any) {
             const errorMessage = error.response.data?.message || error.toString()
             actions.setFieldError('password', errorMessage)

@@ -8,7 +8,7 @@ export default function UbiiLogo() {
     return (
         <img
             src={''}
-            alt="Logo de Ubii"
+            alt="Logo de la empresa"
             className={styles.ubiiLogo}
         />
     )
