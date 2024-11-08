@@ -1,4 +1,5 @@
 export interface Service {
     id: number,
-    nombre: string,
+    name: string,
+    base_amount: number
 }

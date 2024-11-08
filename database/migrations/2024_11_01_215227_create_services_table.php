@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('name');
+            $table->decimal('base_amount', 8, 2);
             $table->timestamps();
         });
     }

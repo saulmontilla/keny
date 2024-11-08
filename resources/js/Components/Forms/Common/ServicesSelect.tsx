@@ -11,7 +11,7 @@ export default function ServicesSelect(props: Omit<Select2ControlProps, 'options
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const formik = useFormikContext()
-    console.log(formik.errors, formik.values)
+    // console.log(formik.errors, formik.values)
 
     const fetchServices = () => {
         setLoading(true)
@@ -46,7 +46,7 @@ export default function ServicesSelect(props: Omit<Select2ControlProps, 'options
             control='select2'
             label='Servicio'
             options={services.map(service => (
-                { name: service.nombre, value: service.id }
+                { name: service.name, value: service.id }
             ))}
             loading={loading}
             placeholder='Seleccione servicio'

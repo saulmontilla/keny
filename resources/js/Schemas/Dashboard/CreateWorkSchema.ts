@@ -2,14 +2,21 @@ import * as Yup from "yup";
 import { BaseSchema } from "../BaseSchema";
 import { Select2Option } from "ubiionline/form";
 
+interface ServiceWithAmount {
+    id: number,
+    name: string,
+    base_amount: number
+}
 export interface CreateWorkSchema extends BaseSchema {
     initialValues: {
         plate: string;
         model: string;
-        amount: number;
         date: string | Date;
         services: Select2Option[];
+        servicesWithAmount: ServiceWithAmount[]
         description: string;
+        labour: number;
+        materials: number
     };
 }
 
@@ -17,10 +24,12 @@ export const CreateWorkSchema: CreateWorkSchema = {
     initialValues: {
         plate: '',
         model: '',
-        amount: 0,
+        servicesWithAmount: [],
         date: '',
         services: [],
         description: '',
+        labour: 0,
+        materials: 0
     },
     validationSchema: Yup.object({
         plate: Yup.string().required('La placa es requerida'),

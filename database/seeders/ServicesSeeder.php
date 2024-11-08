@@ -16,15 +16,18 @@ class ServicesSeeder extends Seeder
         Service::insert([
             [
                 'id' => 1,
-                'nombre' => 'Servicio 1',
+                'name' => 'Servicio 1',
+                'base_amount' => 10.00
             ],
             [
                 'id' => 2,
-                'nombre' => 'Servicio 2',
+                'name' => 'Servicio 2',
+                'base_amount' => 20.00
             ],
             [
                 'id' => 3,
-                'nombre' => 'Servicio 3',
+                'name' => 'Servicio 3',
+                'base_amount' => 50.00
             ],
         ]);
     }

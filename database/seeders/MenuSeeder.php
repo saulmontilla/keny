@@ -41,6 +41,33 @@ class MenuSeeder extends Seeder
                 'activo_regexp' => '/dashboard/work',
                 'icono' => ''
             ],
+            [
+                'id' => 4,
+                'nombre' => 'Configuracion',
+                'orden' => 2,
+                'parent_id' => 0,
+                'url' => '/dashboard/config',
+                'activo_regexp' => '/dashboard/config/*',
+                'icono' => ''
+            ],
+            [
+                'id' => 5,
+                'nombre' => 'Servicios',
+                'orden' => 1,
+                'parent_id' => 4,
+                'url' => '/dashboard/config/service',
+                'activo_regexp' => '/dashboard/config/service',
+                'icono' => ''
+            ],
+            [
+                'id' => 6,
+                'nombre' => 'Modelos',
+                'orden' => 1,
+                'parent_id' => 4,
+                'url' => '/dashboard/config/brand',
+                'activo_regexp' => '/dashboard/config/brand',
+                'icono' => ''
+            ],
         ]);
     }
 }

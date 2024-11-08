@@ -1,10 +1,12 @@
 import { Form, Formik } from 'formik'
 import React from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
-import FormikControl from '../Forms/Controls/FormikControl'
-import ServicesSelect from '../Forms/Common/ServicesSelect'
+import FormikControl from '../../Forms/Controls/FormikControl'
+import ServicesSelect from '../../Forms/Common/ServicesSelect'
 import { WorkRepository } from '@/Repositories/Dashboard/WorkRepository'
 import { CreateWorkSchema } from '@/Schemas/Dashboard/CreateWorkSchema'
+import AmountSetction from './AmountSetction'
+import ServiceSelectSection from './ServiceSelectSection'
 
 export default function CreateWorkForm() {
     const Work = new WorkRepository
@@ -44,24 +46,10 @@ export default function CreateWorkForm() {
                             material
                         />
                     </Col>
-                    <Col md="3">
-                        <FormikControl
-                            control='currency'
-                            name='amount'
-                            label='Monto'
-                            material
-                        />
-                    </Col>
                 </Row>
-                <Row>
-                    <Col>
-                        <ServicesSelect
-                            name='services'
-                            label='Servicios'
-                            isMulti
-                        />
-                    </Col>
-                </Row>
+
+                <ServiceSelectSection />
+
                 <Row>
                     <Col>
                         <FormikControl
@@ -72,6 +60,9 @@ export default function CreateWorkForm() {
                         />
                     </Col>
                 </Row>
+
+                <AmountSetction />
+
                 <Row className="mt-3">
                     <Col md="3" className='mx-md-auto'>
                         <div className="d-grid">
