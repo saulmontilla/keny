@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('service_id');
             $table->integer('work_id');
+            $table->decimal('amount', 8, 2);
             $table->timestamps();
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->foreign('work_id')->references('id')->on('works')->onDelete('cascade');

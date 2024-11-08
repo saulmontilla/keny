@@ -4,7 +4,7 @@ namespace App\Http\Requests\Dashboard;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreWorkController extends FormRequest
+class StoreWorkRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,14 @@ class StoreWorkController extends FormRequest
     {
         return [
             'plate' => ['required', 'string', 'max:10'],
-            'model' => ['required', 'string', 'max:50'],
+            'brand' => ['required', 'integer'],
             'date' => ['required', 'date'],
-            'amount' => ['required', 'numeric'],
             'description' => ['required', 'string'],
-            'services' => ['required', 'array'],
-            'services.*' => ['required', 'string'],
+            'servicesWithAmount' => ['required', 'array'],
+            'servicesWithAmount.*.id' => ['required', 'integer'],
+            'servicesWithAmount.*.base_amount' => ['required', 'numeric'],
+            'labour' => ['required', 'numeric'],
+            'materials' => ['required', 'numeric'],
         ];
     }
 }

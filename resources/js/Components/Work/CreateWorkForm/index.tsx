@@ -7,6 +7,7 @@ import { WorkRepository } from '@/Repositories/Dashboard/WorkRepository'
 import { CreateWorkSchema } from '@/Schemas/Dashboard/CreateWorkSchema'
 import AmountSetction from './AmountSetction'
 import ServiceSelectSection from './ServiceSelectSection'
+import BrandSelect from '@/Components/Forms/Common/BrandSelect'
 
 export default function CreateWorkForm() {
     const Work = new WorkRepository
@@ -29,12 +30,11 @@ export default function CreateWorkForm() {
                             material
                         />
                     </Col>
+                </Row>
+                <Row className='mt-3'>
                     <Col md="3">
-                        <FormikControl
-                            control='text'
-                            name="model"
-                            label="Modelo"
-                            material
+                        <BrandSelect
+                            name='brand'
                         />
                     </Col>
                     <Col md="3">

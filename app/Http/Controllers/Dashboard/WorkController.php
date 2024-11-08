@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\StoreWorkController;
+use App\Http\Requests\Dashboard\StoreWorkRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -15,9 +15,8 @@ class WorkController extends Controller
         return Inertia::render('Work/Create');
     }
 
-    public function store(StoreWorkController $request)
+    public function store(StoreWorkRequest $request)
     {
-
-        return response()->json($request->all());
+        return response()->json('Servicio registrado correctamente');
     }
 }

@@ -10,7 +10,7 @@ interface ServiceWithAmount {
 export interface CreateWorkSchema extends BaseSchema {
     initialValues: {
         plate: string;
-        model: string;
+        brand: Select2Option | null;
         date: string | Date;
         services: Select2Option[];
         servicesWithAmount: ServiceWithAmount[]
@@ -23,7 +23,7 @@ export interface CreateWorkSchema extends BaseSchema {
 export const CreateWorkSchema: CreateWorkSchema = {
     initialValues: {
         plate: '',
-        model: '',
+        brand: null,
         servicesWithAmount: [],
         date: '',
         services: [],
@@ -33,10 +33,13 @@ export const CreateWorkSchema: CreateWorkSchema = {
     },
     validationSchema: Yup.object({
         plate: Yup.string().required('La placa es requerida'),
-        model: Yup.string().required('El modelo es requerido'),
-        amount: Yup.number().required('El monto es requerido').min(1, 'El monto es requerido'),
+        brand: Yup.object().required('El modelo es requerido'),
         date: Yup.date().required('La fecha es requerida'),
         services: Yup.array().required('El servicio es requerido').min(1, 'El servicio es requerido'),
         description: Yup.string().required('La descripción es requerida'),
+        labour: Yup.number().required('El monto de mano de obra es requerido')
+            .min(1, 'El monto de mano de obra es requerido'),
+        materials: Yup.number().required('El monto de materiales es requerido')
+            .min(1, 'El monto de materiales es requerido'),
     }),
 }

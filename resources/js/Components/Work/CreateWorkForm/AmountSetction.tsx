@@ -27,7 +27,7 @@ export default function AmountSetction() {
             </Row>
 
             {servicesWithAmount.map((service, index) => (
-                <Row>
+                <Row key={index}>
                     <Col md="3" className='d-flex align-items-center' style={{ borderBottom: '1px solid black' }}>
                         {service.name}
                     </Col>
@@ -78,7 +78,7 @@ export default function AmountSetction() {
                     <FormikControl
                         control='currency'
                         name='labour'
-                        label="Materiales"
+                        label="Mano de obra"
                         material
                     />
                 </Col>
