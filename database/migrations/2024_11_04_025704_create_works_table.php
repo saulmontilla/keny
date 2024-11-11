@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('works', function (Blueprint $table) {
             $table->id();
-            $table->string('plate', 10);
-            $table->string('brand', 50);
+            $table->string('plate', 15);
+            $table->integer('brand_id');
             $table->date('date');
             $table->decimal('labour', 8, 2)->comment('Mano de obra');
             $table->decimal('materials', 8, 2)->comment('Materiales');
             $table->text('description');
             $table->timestamps();
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
         });
     }
 

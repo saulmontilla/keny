@@ -5,7 +5,7 @@ import { UtableProps } from 'ubiionline/datatable';
 import TryAgain from '../TryAgain';
 import { UTableContext } from '@/Context/UTable/UTableContext';
 import useQuery from '@/Hooks/useQuery';
-import { setCurrentUrlParam } from '@/helpers';
+import { setCurrentUrlParam } from '@/Helpers';
 
 /**
  * React Datatable con estilos personalizados (Ubii Table)
@@ -58,7 +58,7 @@ export default function UTable(props: UtableProps) {
         },
         headRow: {
             style: {
-                background: 'var(--ubii-blue-secondary)'
+                // background: 'var(--ubii-blue-secondary)'
             },
         },
         headCells: {
@@ -79,7 +79,7 @@ export default function UTable(props: UtableProps) {
         },
         pagination: {
             style: {
-                backgroundColor: 'var(--ubii-blue-secondary)',
+                // backgroundColor: 'var(--ubii-blue-secondary)',
             }
         }
     };

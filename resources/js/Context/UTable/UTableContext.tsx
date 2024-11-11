@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { UTableContextProviderProps, UTableContextValue } from "ubiionline/datatable";
 import axios from "axios";
-import { setCurrentUrlParam } from "@/helpers";
-import useQuery from "@/hooks/useQuery";
 import { getIn } from "formik";
+import useQuery from "@/Hooks/useQuery";
+import { setCurrentUrlParam } from "@/Helpers";
 
 export const UTableContext = React.createContext({} as UTableContextValue)
 
@@ -50,7 +50,7 @@ export default function UTableContextProvider(props: UTableContextProviderProps)
             .then(response => {
                 const dataKey = props.dataKey || 'data'
                 setData(getIn(response.data, dataKey))
-                setTotalRows(response.data.meta.total)
+                setTotalRows(response.data.total)
             })
             .catch((e) => {
                 setErrorFetchingData(true)

@@ -28,6 +28,7 @@ export default function CreateWorkForm() {
                             name="plate"
                             label="Placa"
                             material
+                            maxLength={15}
                         />
                     </Col>
                 </Row>

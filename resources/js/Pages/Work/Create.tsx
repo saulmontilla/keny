@@ -9,7 +9,7 @@ const Create: PageWithLayout<PageProps> = () => {
         <Card>
             <Card.Body>
                 <h3 className='text-center'>
-                    Registrar servicio
+                    Registrar trabajo
                 </h3>
 
                 <CreateWorkForm />

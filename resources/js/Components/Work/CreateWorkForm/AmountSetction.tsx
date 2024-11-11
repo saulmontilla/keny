@@ -4,6 +4,7 @@ import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import FormikControl from '@/Components/Forms/Controls/FormikControl'
 import { ci_toValue } from '@/Components/Forms/Controls/CurrencyControl'
+import { formatMonto } from '@/Helpers'
 
 export default function AmountSetction() {
     const formik = useFormikContext<CreateWorkSchema['initialValues']>()
@@ -51,7 +52,7 @@ export default function AmountSetction() {
                     </Col>
                     <Col md="3" style={{ borderBottom: '1px solid black' }}>
                         <strong>
-                            {totalAmount}
+                            {formatMonto(totalAmount)}
                         </strong>
                     </Col>
                 </Row>
