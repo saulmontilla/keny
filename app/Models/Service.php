@@ -9,7 +9,7 @@ class Service extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre'];
+    protected $fillable = ['name', 'base_amount'];
 
     protected $table = 'services';
 }

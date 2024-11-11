@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { UTableContextProviderProps, UTableContextValue } from "ubiionline/datatable";
 import axios from "axios";
 import { getIn } from "formik";
@@ -125,4 +125,8 @@ export default function UTableContextProvider(props: UTableContextProviderProps)
             /> */}
         </UTableContext.Provider>
     )
+}
+
+export function useTable(): UTableContextValue {
+    return useContext(UTableContext)
 }

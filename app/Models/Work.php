@@ -24,7 +24,7 @@ class Work extends Model
 
     public function services(): BelongsToMany
     {
-        return $this->belongsToMany(Service::class, 'service_work');
+        return $this->belongsToMany(Service::class, 'service_work')->withPivot('amount');
     }
 
     public function brand(): BelongsTo

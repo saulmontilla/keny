@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Dashboard;
+namespace App\Repositories;
 
 use App\Models\Dashboard\Menu;
 

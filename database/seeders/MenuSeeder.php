@@ -16,16 +16,16 @@ class MenuSeeder extends Seeder
         Menu::insert([
             [
                 'id' => 1,
-                'nombre' => 'Servicios',
+                'nombre' => 'Trabajos',
                 'orden' => 1,
                 'parent_id' => 0,
                 'url' => '',
                 'activo_regexp' => '/dashboard/work/*',
-                'icono' => 'service-icon'
+                'icono' => ''
             ],
             [
                 'id' => 2,
-                'nombre' => 'Registrar servicio',
+                'nombre' => 'Registrar trabajo',
                 'orden' => 1,
                 'parent_id' => 1,
                 'url' => '/dashboard/work/create',

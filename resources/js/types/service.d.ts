@@ -1,7 +1,12 @@
 export interface Service {
     id: number,
     name: string,
-    base_amount: number
+    base_amount: number,
+    pivot: {
+        work_id: number,
+        service_id: number,
+        amount: number
+    }
 }
 
 export interface Brand {

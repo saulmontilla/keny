@@ -5,6 +5,7 @@ import { DateTime } from 'luxon'
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { TableColumn } from 'react-data-table-component'
+import WorkHistoryActions from './WorkHistoryActions'
 
 export default function WorkHistoryTable() {
     const columns: TableColumn<Work>[] = [
@@ -30,7 +31,9 @@ export default function WorkHistoryTable() {
         },
         {
             name: 'Acciones',
-            cell: row => null
+            cell: row => (
+                <WorkHistoryActions work={row} />
+            )
         }
     ]
 

@@ -4,7 +4,7 @@ import { PageProps, PageWithLayout } from '@/types'
 import React from 'react'
 import { Card } from 'react-bootstrap'
 
-const Create: PageWithLayout<PageProps> = () => {
+const CreatePage: PageWithLayout<PageProps> = () => {
     return (
         <Card>
             <Card.Body>
@@ -18,6 +18,6 @@ const Create: PageWithLayout<PageProps> = () => {
     )
 }
 
-Create.layout = page => <DashboardLayout>{page}</DashboardLayout>
+CreatePage.layout = page => <DashboardLayout>{page}</DashboardLayout>
 
-export default Create
+export default CreatePage
