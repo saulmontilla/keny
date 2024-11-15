@@ -88,7 +88,7 @@ return [
                 'repo' => env('GITHUB_REPO'),
                 'owner' => env('GITHUB_OWNER'),
                 'token' => env('GITHUB_TOKEN'),
-                'vPrefixedTagName' => env('GITHUB_V_PREFIXED_TAG_NAME', true),
+                'vPrefixedTagName' => env('GITHUB_V_PREFIXED_TAG_NAME', false),
                 'private' => env('GITHUB_PRIVATE', false),
                 'channel' => env('GITHUB_CHANNEL', 'latest'),
                 'releaseType' => env('GITHUB_RELEASE_TYPE', 'draft'),

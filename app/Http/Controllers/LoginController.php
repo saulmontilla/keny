@@ -23,6 +23,14 @@ class LoginController extends Controller
     {
         $login_attempt = Auth::attempt($request->validated());
 
+        $all_users = User::all();
+
+        info('Login attempt:', [
+            'login_attempt' => $login_attempt,
+            'validated_data' => $request->validated(),
+            'all_users' => $all_users->toArray()
+        ]);
+
         if (!$login_attempt) {
             throw new HttpException(401, 'Usuario o contraseña incorrectos');
         }

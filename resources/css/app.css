@@ -1,2 +1,6 @@
 @import "./variables.css";
 @import "./customs/index.css";
+
+.loginBg {
+    background-color: #eee;
+}

@@ -4,12 +4,14 @@ import { Card, Col, Container, Row } from 'react-bootstrap'
 
 export default function LoginPage() {
     return (
-        <Container>
-            <Row>
+        <Container className='loginBg' fluid>
+            <Row className='vh-100 align-items-center'>
                 <Col md="6" className='mx-auto'>
                     <Card>
                         <Card.Body>
-                            <h1>Login</h1>
+                            <h1 className='text-center text-info'>
+                                Inicio de sesión
+                            </h1>
 
                             <LoginForm />
                         </Card.Body>
