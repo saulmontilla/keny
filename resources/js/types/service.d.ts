@@ -35,13 +35,14 @@ export interface Vehicle {
 export interface Work {
     id: number;
     plate: string;
-    brand_id: number;
+    vehicle_id: number;
     date: string;
     labour: number;
     materials: number;
     description: string;
     created_at: string;
     updated_at: string,
-    brand: Brand,
-    services: Service[]
+    vehicle: Vehicle,
+    services: Service[],
+    services_sum_base_amount: number
 }

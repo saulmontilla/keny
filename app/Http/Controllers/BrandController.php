@@ -27,7 +27,7 @@ class BrandController extends Controller
 
     public function model(Request $request): JsonResponse
     {
-        $brand_id = $request->get('brand_id');
+        $brand_id = $request->get('brand');
         $query = BrandModel::query();
 
         if ($brand_id) {
@@ -36,18 +36,5 @@ class BrandController extends Controller
 
         $models = $query->get();
         return response()->json($models);
-    }
-
-    public function year(Request $request): JsonResponse
-    {
-        $model_id = $request->get('model_id');
-        $query = BrandYear::query();
-
-        if ($model_id) {
-            $query->where('model_id', $model_id);
-        }
-
-        $years = $query->get();
-        return response()->json($years);
     }
 }

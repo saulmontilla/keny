@@ -14,6 +14,8 @@ export default function WorkHistoryDetails(props: WorkHistoryModalProps) {
                         {DateTime.fromISO(props.work.date).toFormat('dd-MM-yyyy')}
                     </div>
                 </Col>
+            </Row>
+            <Row className="mt-3">
                 <Col md="3">
                     <strong>Placa</strong>
                     <div className="d-block">
@@ -21,9 +23,21 @@ export default function WorkHistoryDetails(props: WorkHistoryModalProps) {
                     </div>
                 </Col>
                 <Col md="3">
+                    <strong>Marca</strong>
+                    <div className="d-block">
+                        {props.work.vehicle.brand.name}
+                    </div>
+                </Col>
+                <Col md="3">
                     <strong>Modelo</strong>
                     <div className="d-block">
-                        {props.work.brand.name}
+                        {props.work.vehicle.model.name}
+                    </div>
+                </Col>
+                <Col md="3">
+                    <strong>Año</strong>
+                    <div className="d-block">
+                        {props.work.vehicle.year}
                     </div>
                 </Col>
             </Row>
@@ -37,7 +51,7 @@ export default function WorkHistoryDetails(props: WorkHistoryModalProps) {
                             <Col md="4" style={{ borderBottom: '1px solid black' }}>
                                 {service.name}
                             </Col>
-                            <Col md="3" style={{ borderBottom: '1px solid black' }}>
+                            <Col md="2" className='text-end' style={{ borderBottom: '1px solid black' }}>
                                 {formatMonto(service.pivot.amount)}
                             </Col>
                         </Row>
@@ -47,19 +61,28 @@ export default function WorkHistoryDetails(props: WorkHistoryModalProps) {
 
             <Row className="mt-3">
                 <Col md="4" style={{ borderBottom: '1px solid black' }}>
-                    <strong>Gasto de materiales</strong>
+                    Gasto de materiales
                 </Col>
-                <Col md="3" style={{ borderBottom: '1px solid black' }}>
+                <Col md="2" className='text-end' style={{ borderBottom: '1px solid black' }}>
                     {formatMonto(props.work.materials)}
                 </Col>
             </Row>
 
             <Row className="mt-3">
                 <Col md="4" style={{ borderBottom: '1px solid black' }}>
-                    <strong>Gasto de mano de obra</strong>
+                    Gasto de repuestos
                 </Col>
-                <Col md="3" style={{ borderBottom: '1px solid black' }}>
+                <Col md="2" className='text-end' style={{ borderBottom: '1px solid black' }}>
                     {formatMonto(props.work.labour)}
+                </Col>
+            </Row>
+
+            <Row className="mt-3">
+                <Col md="4" style={{ borderBottom: '1px solid black' }}>
+                    <strong>Total</strong>
+                </Col>
+                <Col md="2" className='text-end' style={{ borderBottom: '1px solid black' }}>
+                    {formatMonto(props.work.services_sum_base_amount + props.work.labour + props.work.materials)}
                 </Col>
             </Row>
         </>

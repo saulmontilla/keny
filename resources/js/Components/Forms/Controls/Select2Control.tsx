@@ -15,7 +15,12 @@ export default function Select2Control(props: Select2ControlProps & FieldProps) 
         ...rest
     } = props
 
-    const clientError = getIn(form.errors, `${field.name}`)
+    let clientError = getIn(form.errors, `${field.name}`)
+
+    if (typeof clientError === 'object') {
+        clientError = clientError.value
+    }
+
     const serverError = serverName && getIn(form.status.errors, serverName)
     const touched = getIn(form.touched, field.name)
 

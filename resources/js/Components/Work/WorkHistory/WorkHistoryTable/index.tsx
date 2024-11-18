@@ -18,16 +18,20 @@ export default function WorkHistoryTable() {
             selector: row => row.plate
         },
         {
+            name: 'Marca',
+            selector: row => row.vehicle.brand.name
+        },
+        {
             name: 'Modelo',
-            selector: row => row.brand.name
+            selector: row => row.vehicle.model.name
         },
         {
-            name: 'Materiales',
-            selector: row => formatMonto(row.materials)
+            name: 'Año',
+            selector: row => row.vehicle.year
         },
         {
-            name: 'Mano de obra',
-            selector: row => formatMonto(row.labour)
+            name: 'Costo',
+            selector: row => formatMonto(row.services_sum_base_amount + row.labour + row.materials)
         },
         {
             name: 'Acciones',
