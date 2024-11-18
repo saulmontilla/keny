@@ -11,7 +11,7 @@ export class WorkRepository extends BaseRepository {
                 ...values
             }
 
-            data.brand = data.brand?.value
+            data.vehicle = data.vehicle?.value
             data.servicesWithAmount.map(service => {
                 service.base_amount = ci_toValue(service.base_amount)
                 return service

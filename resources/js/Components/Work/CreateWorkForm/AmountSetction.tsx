@@ -9,11 +9,6 @@ import { formatMonto } from '@/Helpers'
 export default function AmountSetction() {
     const formik = useFormikContext<CreateWorkSchema['initialValues']>()
     const { servicesWithAmount } = formik.values
-    const totalAmount = servicesWithAmount.reduce((accumulator, service) => {
-        accumulator += ci_toValue(service.base_amount)
-
-        return accumulator
-    }, 0)
 
     if (servicesWithAmount.length === 0) return null
 
@@ -43,21 +38,6 @@ export default function AmountSetction() {
                 </Row>
             ))}
 
-            {servicesWithAmount.length > 1 && (
-                <Row className='mt-2'>
-                    <Col md="3" style={{ borderBottom: '1px solid black' }}>
-                        <strong>
-                            Total en servicios
-                        </strong>
-                    </Col>
-                    <Col md="3" style={{ borderBottom: '1px solid black' }}>
-                        <strong>
-                            {formatMonto(totalAmount)}
-                        </strong>
-                    </Col>
-                </Row>
-            )}
-
             <Row className="mt-3">
                 <Col md="3" style={{ borderBottom: '1px solid black' }}>
                     Materiales
@@ -73,13 +53,13 @@ export default function AmountSetction() {
             </Row>
             <Row className="mt-3" >
                 <Col md="3" style={{ borderBottom: '1px solid black' }}>
-                    Mano de obra
+                    Repuestos
                 </Col>
                 <Col md="3" style={{ borderBottom: '1px solid black' }}>
                     <FormikControl
                         control='currency'
                         name='labour'
-                        label="Mano de obra"
+                        label="Repuestos"
                         material
                     />
                 </Col>

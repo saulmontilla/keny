@@ -12,7 +12,7 @@ class WorkRepository
     {
         $work = Work::create([
             'plate' => strtoupper($data['plate']),
-            'brand_id' => $data['brand'],
+            'vehicle_id' => $data['vehicle'],
             'date' => $data['date'],
             'labour' => $data['labour'],
             'materials' => $data['materials'],
@@ -29,7 +29,7 @@ class WorkRepository
     public function historyDatatable(Request $request): LengthAwarePaginator
     {
         $query = Work::query();
-        $query->with(['brand', 'services']);
+        $query->with(['vehicle.brand', 'vehicle.model', 'services']);
         $query->withSum('services', 'base_amount');
 
         if ($request->has('from')) {

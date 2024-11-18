@@ -23,7 +23,7 @@ class StoreWorkRequest extends FormRequest
     {
         return [
             'plate' => ['required', 'string', 'max:15'],
-            'brand' => ['required', 'integer'],
+            'vehicle' => ['required', 'integer'],
             'date' => ['required', 'date'],
             'description' => ['required', 'string'],
             'servicesWithAmount' => ['required', 'array'],

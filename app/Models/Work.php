@@ -15,7 +15,7 @@ class Work extends Model
 
     protected $fillable = [
         'plate',
-        'brand_id',
+        'vehicle_id',
         'date',
         'labour',
         'materials',
