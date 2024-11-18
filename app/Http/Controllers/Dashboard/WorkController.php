@@ -34,4 +34,6 @@ class WorkController extends Controller
     {
         return $work->historyDatatable($request);
     }
+
+    public function print()
 }

@@ -48,7 +48,8 @@ class HandleInertiaRequests extends Middleware
                     'query' => $request->query()
                 ]);
             },
-            'theme' => config('theme')
+            'theme' => config('theme'),
+            'native_version' => config('nativephp.version'),
         ]);
     }
 }

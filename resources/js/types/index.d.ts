@@ -6,6 +6,7 @@ export type PageProps<T extends Record<string, any> = Record<string, any>> = T &
         user: User;
     };
     theme: Theme;
+    native_version: string;
 };
 
 export type PageWithLayout<P = {}> = React.FC<P> & {
