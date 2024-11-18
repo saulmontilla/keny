@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Brand extends Model
+class BrandModel extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $table = 'brand_model';
 
-    protected $table = 'brands';
+    protected $fillable = ['name', 'brand_id'];
 
     public function name(): Attribute
     {
@@ -20,5 +20,10 @@ class Brand extends Model
             get: fn($value) => trim(strtoupper($value)),
             set: fn($value) => trim(strtoupper($value))
         );
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
     }
 }

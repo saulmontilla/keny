@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
-import CreateBrandModal from './CreateBrandModal'
+import CreateVehicleModal from './CreateVehicleModal'
 
-export default function CreateBrand() {
+export default function CreateVehicle() {
     const [showModal, setShowModal] = useState(false)
 
     function handleClick() {
@@ -26,7 +26,7 @@ export default function CreateBrand() {
                 </Col>
             </Row>
 
-            <CreateBrandModal
+            <CreateVehicleModal
                 show={showModal}
                 onHide={handleClose}
             />

@@ -8,6 +8,7 @@ import { CreateWorkSchema } from '@/Schemas/Dashboard/CreateWorkSchema'
 import AmountSetction from './AmountSetction'
 import ServiceSelectSection from './ServiceSelectSection'
 import BrandSelect from '@/Components/Forms/Common/BrandSelect'
+import VehicleSelect from '@/Components/Forms/Common/VehicleSelect'
 
 export default function CreateWorkForm() {
     const Work = new WorkRepository
@@ -32,12 +33,7 @@ export default function CreateWorkForm() {
                         />
                     </Col>
                 </Row>
-                <Row className='mt-3'>
-                    <Col md="3">
-                        <BrandSelect
-                            name='brand'
-                        />
-                    </Col>
+                <Row>
                     <Col md="3">
                         <FormikControl
                             control='date-picker'
@@ -45,6 +41,14 @@ export default function CreateWorkForm() {
                             label='Fecha'
                             placeholderText='dd/mm/yyyy'
                             material
+                            maxDate={new Date()}
+                        />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md="4">
+                        <VehicleSelect
+                            name='vehicle'
                         />
                     </Col>
                 </Row>

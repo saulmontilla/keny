@@ -2,6 +2,7 @@ import { FieldProps, getIn } from 'formik'
 import React from 'react'
 import { Select2ControlProps } from 'ubiionline/form'
 import BaseSelect2 from './Base/BaseSelect2'
+import BaseSelect2Creatable from './Base/BaseSelect2Creatable'
 
 export default function Select2Control(props: Select2ControlProps & FieldProps) {
     const {
@@ -10,6 +11,7 @@ export default function Select2Control(props: Select2ControlProps & FieldProps) 
         meta,
         serverName,
         onChange,
+        isCreatable,
         ...rest
     } = props
 
@@ -24,6 +26,16 @@ export default function Select2Control(props: Select2ControlProps & FieldProps) 
 
     function handleBlur() {
         form.setFieldTouched(`${field.name}`, true, false)
+    }
+
+    if (isCreatable) {
+        return <BaseSelect2Creatable
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched ? (clientError || serverError) : ''}
+            {...field}
+            {...rest}
+        />
     }
 
     return <BaseSelect2

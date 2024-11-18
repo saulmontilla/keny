@@ -2,38 +2,54 @@ import FormikControl from '@/Components/Forms/Controls/FormikControl'
 import { Form, Formik } from 'formik'
 import React from 'react'
 import { Button, Col, Modal, Row, Spinner } from 'react-bootstrap'
-import { CreateBrandModalProps } from '.'
 import { useTable } from '@/Context/UTable/UTableContext'
-import { BrandRepository } from '@/Repositories/Dashboard/BrandRepository'
-import { CreateBrandSchema } from '@/Schemas/Dashboard/CreateBrandSchema'
+import BrandSelect from '@/Components/Forms/Common/BrandSelect'
+import BrandModelSelect from '@/Components/Forms/Common/BrandModelSelect'
+import { CreateVehicleModalProps } from '.'
+import { VehicleRepository } from '@/Repositories/Dashboard/VehicleRepository'
+import { CreateVehicleSchema } from '@/Schemas/Dashboard/CreateBrandSchema'
 
-export default function CreateBrandForm(props: CreateBrandModalProps) {
-    const Brand = new BrandRepository()
+export default function CreateVehicleForm(props: CreateVehicleModalProps) {
+    const Vehicle = new VehicleRepository()
     const datatable = useTable()
 
-    if (props.brand) {
-        CreateBrandSchema.initialValues.id = props.service.id
-        CreateBrandSchema.initialValues.name = props.service.name
-    }
+    // if (props.brand) {
+    //     CreateVehicleSchema.initialValues.id = props.service.id
+    //     CreateVehicleSchema.initialValues.name = props.service.name
+    // }
 
     return (
         <Formik
-            initialValues={CreateBrandSchema.initialValues}
-            validationSchema={CreateBrandSchema.validationSchema}
+            initialValues={CreateVehicleSchema.initialValues}
+            validationSchema={CreateVehicleSchema.validationSchema}
             onSubmit={async (values) => {
-                await Brand.preConfirm(() => Brand.update(values, props, datatable))
+                await Vehicle.preConfirm(() => Vehicle.store(values, props, datatable))
             }}
         >
             {formik => (
                 <Form>
                     <Modal.Body>
                         <Row>
-                            <Col md="6">
+                            <Col md="4">
+                                <BrandSelect
+                                    name="brand"
+                                    isCreatable
+                                />
+                            </Col>
+                            <Col md="4">
+                                <BrandModelSelect
+                                    name="model"
+                                    brandName='brand'
+                                    isCreatable
+                                />
+                            </Col>
+                            <Col md="4">
                                 <FormikControl
-                                    control='text'
-                                    name='name'
-                                    maxLength={255}
-                                    label="Nombre"
+                                    name='year'
+                                    control="text"
+                                    numeric
+                                    maxLength={4}
+                                    label='Año'
                                     material
                                 />
                             </Col>

@@ -1,13 +1,13 @@
 import { BaseRepository } from "../BaseRepository";
 import { UTableContextValue } from "ubiionline/datatable";
 import { AxiosResponse } from "axios";
-import { CreateBrandSchema } from "@/Schemas/Dashboard/CreateBrandSchema";
-import { CreateBrandModalProps } from "@/Components/Brand/CreateBrandModal";
+import { CreateVehicleModalProps } from "@/Components/Vehicle/CreateVehicleModal";
+import { CreateVehicleSchema } from "@/Schemas/Dashboard/CreateBrandSchema";
 
-export class BrandRepository extends BaseRepository {
-    async update(
-        values: CreateBrandSchema['initialValues'],
-        props: CreateBrandModalProps,
+export class VehicleRepository extends BaseRepository {
+    async store(
+        values: CreateVehicleSchema['initialValues'],
+        props: CreateVehicleModalProps,
         datatable: UTableContextValue
     ) {
         try {
@@ -18,9 +18,9 @@ export class BrandRepository extends BaseRepository {
             let response: AxiosResponse
 
             if (props.brand) {
-                response = await this.axios.put(`/dashboard/config/brand/${values.id}`, data)
+                response = await this.axios.put(`/dashboard/config/vehicle/${values.id}`, data)
             } else {
-                response = await this.axios.post(`/dashboard/config/brand`, data)
+                response = await this.axios.post(`/dashboard/config/vehicle`, data)
             }
 
             this.Swal.fire({

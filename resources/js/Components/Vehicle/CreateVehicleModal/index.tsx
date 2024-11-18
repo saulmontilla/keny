@@ -1,28 +1,28 @@
 import React from 'react'
 import { Modal, ModalProps } from 'react-bootstrap'
 import { Brand } from '@/types/service';
-import CreateBrandForm from './CreateServiceForm';
+import CreateVehicleForm from './CreateVehicleForm';
 
-export interface CreateBrandModalProps extends ModalProps {
+export interface CreateVehicleModalProps extends ModalProps {
     brand?: Brand
 };
 
-export default function CreateBrandModal(props: CreateBrandModalProps) {
+export default function CreateVehicleModal(props: CreateVehicleModalProps) {
     const { service, ...modalProps } = props;
     const isEdit = !!service
 
     return (
-        <Modal {...modalProps}>
+        <Modal {...modalProps} size='lg'>
             <Modal.Header closeButton>
                 <Modal.Title>
                     {isEdit
-                        ? 'Editar Modelo'
-                        : 'Crear Modelo'
+                        ? 'Editar Modelo de Vehículo'
+                        : 'Crear Modelo de Vehículo'
                     }
                 </Modal.Title>
             </Modal.Header>
 
-            <CreateBrandForm {...props} />
+            <CreateVehicleForm {...props} />
         </Modal>
     )
 }

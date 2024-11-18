@@ -4,7 +4,7 @@ namespace App\Http\Requests\Dashboard\Config;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateBrandRequest extends FormRequest
+class CreateVehicleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,9 @@ class CreateBrandRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'brand' => ['required'],
+            'model' => ['required',],
+            'year' => ['required', 'string', 'max:4'],
         ];
     }
 }

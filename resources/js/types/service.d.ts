@@ -14,6 +14,24 @@ export interface Brand {
     name: string
 }
 
+export interface BrandModel {
+    id: number,
+    name: string,
+    brand_id: number
+    created_at: string,
+    updated_at: string,
+    brand: Brand
+}
+
+export interface Vehicle {
+    id: number,
+    brand_id: number,
+    model_id: number,
+    year: number,
+    brand: Brand,
+    model: BrandModel
+}
+
 export interface Work {
     id: number;
     plate: string;

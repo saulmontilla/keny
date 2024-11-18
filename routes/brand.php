@@ -10,4 +10,6 @@ Route::group([
 ], function () {
     Route::get('/', 'index')->name('index');
     Route::get('/datatable', 'datatable')->name('datatable');
+    Route::get('/model', 'model')->name('model');
+    Route::get('/year', 'year')->name('year');
 });

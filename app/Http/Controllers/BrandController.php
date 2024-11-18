@@ -6,6 +6,8 @@ use App\Models\Brand;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Models\BrandModel;
+use App\Models\BrandYear;
 
 class BrandController extends Controller
 {
@@ -21,5 +23,31 @@ class BrandController extends Controller
         $query = Brand::query();
 
         return $query->paginate($request->get('per_page', 10));
+    }
+
+    public function model(Request $request): JsonResponse
+    {
+        $brand_id = $request->get('brand_id');
+        $query = BrandModel::query();
+
+        if ($brand_id) {
+            $query->where('brand_id', $brand_id);
+        }
+
+        $models = $query->get();
+        return response()->json($models);
+    }
+
+    public function year(Request $request): JsonResponse
+    {
+        $model_id = $request->get('model_id');
+        $query = BrandYear::query();
+
+        if ($model_id) {
+            $query->where('model_id', $model_id);
+        }
+
+        $years = $query->get();
+        return response()->json($years);
     }
 }

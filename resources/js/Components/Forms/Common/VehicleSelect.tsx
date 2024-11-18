@@ -1,22 +1,22 @@
 import FormikControl from '@/Components/Forms/Controls/FormikControl'
 import TryAgain from '@/Components/TryAgain'
-import { Brand } from '@/types/service'
+import { Brand, Vehicle } from '@/types/service'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Select2ControlProps } from 'ubiionline/form'
 
-export default function BrandSelect(props: Omit<Select2ControlProps, 'options'>) {
-    const [brands, setBrands] = useState<Brand[]>([])
+export default function VehicleSelect(props: Omit<Select2ControlProps, 'options'>) {
+    const [vehicles, setVehicles] = useState<Vehicle[]>([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
-    const fetchBrands = () => {
+    const fetchVehicles = () => {
         setLoading(true)
         setError(false)
 
-        axios.get('/brand')
+        axios.get('/dashboard/config/vehicle/all')
             .then(response => {
-                setBrands(response.data)
+                setVehicles(response.data)
                 setLoading(false)
             })
             .catch(() => {
@@ -26,14 +26,14 @@ export default function BrandSelect(props: Omit<Select2ControlProps, 'options'>)
     }
 
     useEffect(() => {
-        fetchBrands()
+        fetchVehicles()
     }, [])
 
     if (error) {
         return (
             <TryAgain
-                onRetry={fetchBrands}
-                text='Error al cargar los modelos'
+                onRetry={fetchVehicles}
+                text='Error al cargar los vehiculos'
             />
         )
     }
@@ -41,12 +41,15 @@ export default function BrandSelect(props: Omit<Select2ControlProps, 'options'>)
     return (
         <FormikControl
             control='select2'
-            label='Marca'
-            options={brands.map(brand => (
-                { name: brand.name, value: brand.id }
+            label='Vehiculo'
+            options={vehicles.map(vehicule => (
+                {
+                    name: `${vehicule.brand.name} ${vehicule.model.name} ${vehicule.year}`,
+                    value: vehicule.id
+                }
             ))}
             loading={loading}
-            placeholder='Seleccione marca'
+            placeholder='Seleccione vehiculo'
             material
             {...props}
         />

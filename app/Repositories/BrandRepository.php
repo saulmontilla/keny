@@ -6,9 +6,9 @@ use App\Models\Brand;
 
 class BrandRepository
 {
-    public function store(array $data): void
+    public function store(array $data): Brand
     {
-        Brand::create($data);
+        return Brand::create($data);
     }
 
     public function update(array $data, Brand $brand): void

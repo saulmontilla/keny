@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import FormikControl from '../../Controls/FormikControl'
-import { City } from '@/types/address'
 import axios from 'axios'
 import { getIn, useFormikContext } from 'formik'
 import TryAgain from '@/Components/TryAgain'
+import { City } from '@/types/address'
 
 export interface CitySelectProps {
     name: string,

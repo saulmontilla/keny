@@ -316,6 +316,7 @@ declare module "ubiionline/form" {
          */
         loadingText?: string;
         onLoad?: (value: T) => void;
+        isCreatable?: boolean;
     } & FormikControlCommonsProps & ReactSelectProps
 
     export type Select2Option = {
