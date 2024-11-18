@@ -28,7 +28,7 @@ export class WorkRepository extends BaseRepository {
             })
                 .then(() => {
                     actions.resetForm()
-                    router.reload()
+                    router.visit('/dashboard/work')
                 })
         } catch (error) {
             this.throwError(this.getAxiosError(error))

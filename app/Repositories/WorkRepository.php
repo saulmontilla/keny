@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Work;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class WorkRepository
 {
@@ -40,8 +41,17 @@ class WorkRepository
             $query->whereDate('date', '<=', $request->get('to'));
         }
 
+        $query->orderByDesc('date');
+
         $works = $query->paginate();
 
         return $works;
+    }
+
+    public function print(Work $work)
+    {
+        $pdf = Pdf::loadView('pdf.work', ['work' => $work]);
+
+        return $pdf->download('invoice.pdf');
     }
 }

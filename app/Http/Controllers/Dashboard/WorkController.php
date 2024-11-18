@@ -35,5 +35,16 @@ class WorkController extends Controller
         return $work->historyDatatable($request);
     }
 
-    public function print()
+    public function print(Request $request, Work $work, WorkRepository $workRepository)
+    {
+        $work = $work->load(['vehicle.brand', 'vehicle.model', 'services']);
+        $work->loadSum('services', 'base_amount');
+        $work->totalService = $work->services_sum_base_amount + $work->materials;
+        $work->total = $work->totalService + $work->labour;
+
+        $pdf = $workRepository->print($work);
+
+
+        return $pdf;
+    }
 }
