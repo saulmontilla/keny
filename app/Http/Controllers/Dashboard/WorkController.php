@@ -38,8 +38,8 @@ class WorkController extends Controller
     public function print(Request $request, Work $work, WorkRepository $workRepository)
     {
         $work = $work->load(['vehicle.brand', 'vehicle.model', 'services']);
-        $work->loadSum('services', 'base_amount');
-        $work->totalService = $work->services_sum_base_amount + $work->materials;
+        $work->loadSum('services as total_service_amount', 'service_work.amount');
+        $work->totalService = $work->total_service_amount + $work->materials;
         $work->total = $work->totalService + $work->labour;
 
         $pdf = $workRepository->print($work);

@@ -31,7 +31,7 @@ class WorkRepository
     {
         $query = Work::query();
         $query->with(['vehicle.brand', 'vehicle.model', 'services']);
-        $query->withSum('services', 'base_amount');
+        $query->withSum('services as total_service_amount', 'service_work.amount');
 
         if ($request->has('from')) {
             $query->whereDate('date', '>=', $request->get('from'));

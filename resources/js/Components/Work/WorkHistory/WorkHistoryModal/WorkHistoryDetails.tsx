@@ -5,6 +5,9 @@ import { DateTime } from 'luxon'
 import { formatMonto } from '@/Helpers'
 
 export default function WorkHistoryDetails(props: WorkHistoryModalProps) {
+    const { work } = props
+    const totalAmount = work.total_service_amount + work.labour + work.materials
+
     return (
         <>
             <Row>
@@ -42,9 +45,18 @@ export default function WorkHistoryDetails(props: WorkHistoryModalProps) {
                 </Col>
             </Row>
 
+            <Row className="mt-3">
+                <Col>
+                    <strong>Descripción</strong>
+                    <div className="d-block">
+                        {props.work.description}
+                    </div>
+                </Col>
+            </Row>
+
             <Row className='mt-3'>
                 <Col>
-                    <strong>Servicios realizados</strong>
+                    <strong>Gastos</strong>
 
                     {props.work.services.map(service => (
                         <Row key={service.id}>
@@ -78,11 +90,11 @@ export default function WorkHistoryDetails(props: WorkHistoryModalProps) {
             </Row>
 
             <Row className="mt-3">
-                <Col md="4" style={{ borderBottom: '1px solid black' }}>
+                <Col md="4">
                     <strong>Total</strong>
                 </Col>
-                <Col md="2" className='text-end' style={{ borderBottom: '1px solid black' }}>
-                    {formatMonto(props.work.services_sum_base_amount + props.work.labour + props.work.materials)}
+                <Col md="2" className='text-end'>
+                    {formatMonto(totalAmount)}
                 </Col>
             </Row>
         </>

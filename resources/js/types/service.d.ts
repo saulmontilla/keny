@@ -44,5 +44,5 @@ export interface Work {
     updated_at: string,
     vehicle: Vehicle,
     services: Service[],
-    services_sum_base_amount: number
+    total_service_amount: number
 }

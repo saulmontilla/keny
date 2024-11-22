@@ -37,11 +37,9 @@ export const CreateWorkSchema: CreateWorkSchema = {
             value: Yup.string().required('El modelo de vehiculo es requerido')
         }),
         date: Yup.date().required('La fecha es requerida'),
-        services: Yup.array().required('El servicio es requerido').min(1, 'El servicio es requerido'),
+        services: Yup.array().required('El servicio es requerido'),
         description: Yup.string().required('La descripción es requerida'),
-        labour: Yup.number().required('El monto de mano de obra es requerido')
-            .min(1, 'El monto de mano de obra es requerido'),
+        labour: Yup.number().required('El monto de mano de obra es requerido'),
         materials: Yup.number().required('El monto de materiales es requerido')
-            .min(1, 'El monto de materiales es requerido'),
     }),
 }
