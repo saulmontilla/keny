@@ -13,4 +13,5 @@ Route::group([
     include __DIR__ . '/work.php';
     include __DIR__ . '/menu.php';
     include __DIR__ . '/config/index.php';
+    include __DIR__ . '/security/index.php';
 });

@@ -19,7 +19,7 @@ return new class extends Migration
                 'orden' => 1,
                 'parent_id' => 0,
                 'url' => '',
-                'activo_regexp' => '/dashboard/work/*',
+                'activo_regexp' => '/\/dashboard\/work\/.*/',
                 'icono' => ''
             ],
             [
@@ -28,7 +28,7 @@ return new class extends Migration
                 'orden' => 1,
                 'parent_id' => 1,
                 'url' => '/dashboard/work/create',
-                'activo_regexp' => '/dashboard/work/create',
+                'activo_regexp' => '/\/dashboard\/work\/create/',
                 'icono' => ''
             ],
             [
@@ -37,7 +37,7 @@ return new class extends Migration
                 'orden' => 2,
                 'parent_id' => 1,
                 'url' => '/dashboard/work',
-                'activo_regexp' => '/dashboard/work',
+                'activo_regexp' => '/\/dashboard\/work/',
                 'icono' => ''
             ],
             [
@@ -46,7 +46,7 @@ return new class extends Migration
                 'orden' => 2,
                 'parent_id' => 0,
                 'url' => '/dashboard/config',
-                'activo_regexp' => '/dashboard/config/*',
+                'activo_regexp' => '/\/dashboard\/config\/.*/',
                 'icono' => ''
             ],
             [
@@ -55,7 +55,7 @@ return new class extends Migration
                 'orden' => 1,
                 'parent_id' => 4,
                 'url' => '/dashboard/config/service',
-                'activo_regexp' => '/dashboard/config/service',
+                'activo_regexp' => '/\/dashboard\/config\/service/',
                 'icono' => ''
             ],
             [
@@ -64,7 +64,7 @@ return new class extends Migration
                 'orden' => 1,
                 'parent_id' => 4,
                 'url' => '/dashboard/config/brand',
-                'activo_regexp' => '/dashboard/config/brand',
+                'activo_regexp' => '/\/dashboard\/config\/brand/',
                 'icono' => ''
             ],
         ]);

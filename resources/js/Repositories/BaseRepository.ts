@@ -29,6 +29,10 @@ export class BaseRepository {
         })
     }
 
+    throwAxiosError(error: any) {
+        this.throwError(this.getAxiosError(error))
+    }
+
     getAxiosError(error: any) {
         return error.response?.data?.message || error.toString()
     }
