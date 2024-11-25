@@ -41,9 +41,9 @@ class WorkController extends Controller
         $work->loadSum('services as total_service_amount', 'service_work.amount');
         $work->totalService = $work->total_service_amount + $work->materials;
         $work->total = $work->totalService + $work->labour;
+        $work->code = str_pad($work->id, 6, '0', STR_PAD_LEFT);
 
         $pdf = $workRepository->print($work);
-
 
         return $pdf;
     }

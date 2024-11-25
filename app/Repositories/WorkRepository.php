@@ -52,6 +52,6 @@ class WorkRepository
     {
         $pdf = Pdf::loadView('pdf.work', ['work' => $work]);
 
-        return $pdf->download('invoice.pdf');
+        return $pdf->download('work.pdf');
     }
 }

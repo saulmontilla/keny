@@ -1,4 +1,5 @@
 import LoginForm from '@/Components/Login/LoginForm'
+import UbiiLogo from '@/Layouts/DashboardLayout/DashboardNavbar/UbiiLogo'
 import { PageProps } from '@/types'
 import React from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
@@ -11,6 +12,11 @@ export default function LoginPage(props: PageProps) {
                 <Col md="6" className='mx-auto'>
                     <Card>
                         <Card.Body>
+                            <Row>
+                                <Col className='text-center'>
+                                    <UbiiLogo style={{ width: '6rem' }} />
+                                </Col>
+                            </Row>
                             <h1 className='text-center text-info'>
                                 Inicio de sesión
                             </h1>

@@ -16,7 +16,7 @@ export default function DashboardNavbar() {
 
     return (
         <nav className={styles.navbar}>
-            {/* <UbiiLogo /> */}
+            <UbiiLogo />
             <div></div>
             <div className={styles.navEnd}>
                 <UserLogo className={styles.userLogo} />

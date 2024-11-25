@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\Work;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.store');
+
+Route::get('/pdf', function () {
+    $work = Work::find(1);
+    $pdf = PDF::loadView('pdf.work', ['work' => $work]);
+    return $pdf->download('work.pdf');
+});
 
 include __DIR__ . '/dashboard/index.php';
 include __DIR__ . '/service.php';
