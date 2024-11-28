@@ -5,8 +5,16 @@ export interface Service {
     pivot: {
         work_id: number,
         service_id: number,
-        amount: number
-    }
+        amount: number,
+        renders_in_pdf: boolean
+    },
+    service_type_id: number,
+    type: ServiceType
+}
+
+export interface ServiceType {
+    id: number,
+    name: string
 }
 
 export interface Brand {

@@ -31,7 +31,7 @@ export default function WorkHistoryTable() {
         },
         {
             name: 'Costo',
-            selector: row => formatMonto(row.total_service_amount + row.labour + row.materials)
+            selector: row => formatMonto(row.total_service_amount)
         },
         {
             name: 'Acciones',

@@ -1,13 +1,10 @@
-import { Form, Formik } from 'formik'
+import { FieldArray, Form, Formik } from 'formik'
 import React from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
 import FormikControl from '../../Forms/Controls/FormikControl'
-import ServicesSelect from '../../Forms/Common/ServicesSelect'
 import { WorkRepository } from '@/Repositories/Dashboard/WorkRepository'
 import { CreateWorkSchema } from '@/Schemas/Dashboard/CreateWorkSchema'
 import AmountSetction from './AmountSetction'
-import ServiceSelectSection from './ServiceSelectSection'
-import BrandSelect from '@/Components/Forms/Common/BrandSelect'
 import VehicleSelect from '@/Components/Forms/Common/VehicleSelect'
 
 export default function CreateWorkForm() {
@@ -53,8 +50,6 @@ export default function CreateWorkForm() {
                     </Col>
                 </Row>
 
-                <ServiceSelectSection />
-
                 <Row>
                     <Col>
                         <FormikControl
@@ -66,7 +61,13 @@ export default function CreateWorkForm() {
                     </Col>
                 </Row>
 
-                <AmountSetction />
+                <FieldArray
+                    name='services'
+                >
+                    {arrayHelpers => (
+                        <AmountSetction arrayHelpers={arrayHelpers} />
+                    )}
+                </FieldArray>
 
                 <Row className="mt-3">
                     <Col md="3" className='mx-md-auto'>

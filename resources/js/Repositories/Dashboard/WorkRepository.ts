@@ -13,12 +13,11 @@ export class WorkRepository extends BaseRepository {
             }
 
             data.vehicle = data.vehicle?.value
-            data.servicesWithAmount.map(service => {
-                service.base_amount = ci_toValue(service.base_amount)
-                return service
-            })
-            data.labour = ci_toValue(data.labour)
-            data.materials = ci_toValue(data.materials)
+            data.services = data.services.map(service => ({
+                ...service,
+                amount: ci_toValue(service.amount)
+            }))
+                .filter(service => service.amount > 0)
 
             const response = await this.axios.post('/dashboard/work', data)
 

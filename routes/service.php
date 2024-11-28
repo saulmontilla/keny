@@ -10,4 +10,5 @@ Route::group([
 ], function () {
     Route::get('/', 'index')->name('index');
     Route::get('/datatable', 'datatable')->name('datatable');
+    Route::get('/type', 'type')->name('type');
 });

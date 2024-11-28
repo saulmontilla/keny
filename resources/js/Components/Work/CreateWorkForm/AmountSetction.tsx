@@ -1,69 +1,80 @@
 import { CreateWorkSchema } from '@/Schemas/Dashboard/CreateWorkSchema'
-import { useFormikContext } from 'formik'
-import React from 'react'
-import { Col, Row } from 'react-bootstrap'
-import FormikControl from '@/Components/Forms/Controls/FormikControl'
-import { ci_toValue } from '@/Components/Forms/Controls/CurrencyControl'
-import { formatMonto } from '@/Helpers'
+import { useFormikContext, ArrayHelpers } from 'formik'
+import React, { useEffect } from 'react'
+import { Col, Row, Spinner } from 'react-bootstrap'
+import useFetch from '@/Hooks/useFetch'
+import TryAgain from '@/Components/TryAgain'
+import { Service } from '@/types/service'
+import ServiceItem from './ServiceItem'
+import ErrorMessageControl from '@/Components/Forms/Controls/ErrorMessageControl'
+import AddServiceButton from './AddServiceButton'
 
-export default function AmountSetction() {
+interface AmountSectionProps {
+    arrayHelpers: ArrayHelpers;
+}
+
+export default function AmountSetction(props: AmountSectionProps) {
     const formik = useFormikContext<CreateWorkSchema['initialValues']>()
-    const { servicesWithAmount } = formik.values
+    const { services } = formik.values
+    const [servicesList, loadingServicesList, error, fetchServicesList] = useFetch<Service[]>({
+        url: '/service',
+        initialValue: []
+    })
 
-    if (servicesWithAmount.length === 0) return null
+    useEffect(() => {
+        fetchServicesList()
+            .then(data => {
+                formik.setFieldValue('services', data.map(service => ({
+                    id: service.id,
+                    amount: 0,
+                    name: service.name,
+                    rendersInPdf: false,
+                    type: service.service_type_id.toString()
+                })))
+            })
+    }, [])
+
+    if (loadingServicesList) {
+        return (
+            <Spinner animation='border' variant='primary' />
+        )
+    }
+
+    if (error) {
+        return (
+            <TryAgain
+                onRetry={() => fetchServicesList()}
+                text='Ocurrió un error al cargar los servicios'
+            />
+        )
+    }
 
     return (
         <>
             <Row className='my-3'>
                 <Col>
                     <h4>
-                        Monto
+                        Montos
                     </h4>
                 </Col>
             </Row>
 
-            {servicesWithAmount.map((service, index) => (
-                <Row key={index}>
-                    <Col md="3" className='d-flex align-items-center' style={{ borderBottom: '1px solid black' }}>
-                        {service.name}
-                    </Col>
-                    <Col md="3" style={{ borderBottom: '1px solid black' }}>
-                        <FormikControl
-                            control='currency'
-                            name={`servicesWithAmount.${index}.base_amount`}
-                            label="Monto"
-                            material
-                        />
-                    </Col>
-                </Row>
+            {services.map((service, index, servicesArray) => (
+                <ServiceItem
+                    key={service.id}
+                    index={index}
+                    arrayHelpers={props.arrayHelpers}
+                    servicesArray={servicesArray}
+                />
             ))}
 
-            <Row className="mt-3">
-                <Col md="3" style={{ borderBottom: '1px solid black' }}>
-                    Materiales
-                </Col>
-                <Col md="3" style={{ borderBottom: '1px solid black' }}>
-                    <FormikControl
-                        control='currency'
-                        name='materials'
-                        label="Materiales"
-                        material
-                    />
-                </Col>
-            </Row>
-            <Row className="mt-3" >
-                <Col md="3" style={{ borderBottom: '1px solid black' }}>
-                    Repuestos
-                </Col>
-                <Col md="3" style={{ borderBottom: '1px solid black' }}>
-                    <FormikControl
-                        control='currency'
-                        name='labour'
-                        label="Repuestos"
-                        material
-                    />
-                </Col>
-            </Row>
+            {services.length === 0 && (
+                <>
+                    <AddServiceButton arrayHelpers={props.arrayHelpers} />
+                    <ErrorMessageControl name='services' />
+                </>
+
+            )}
         </>
     )
 }

@@ -133,28 +133,33 @@
             <tr>
                 <td>
                     Mano de obra: 
-                    @foreach ($work->services as $index => $service)
-                        {{ $service->name }} {{$index + 1 < count($work->services) ? ', ' : ''}}
+                    @foreach ($work->labourServices as $index => $service)
+                        {{ $service->name }} {{$index + 1 < count($work->labourServices) ? ', ' : ''}}
                     @endforeach
                 </td>
                 <td class="cell-numeric">
-                    {{ amount_format($work->totalService)}}
+                    {{ amount_format($work->totalLabour)}}
                 </td>
                 <td class="cell-numeric">
-                    {{ amount_format($work->totalService)}}
+                    {{ amount_format($work->totalLabour)}}
                 </td>
             </tr>
+            
+            @foreach ($work->enumerableServices as $service)
             <tr>
                 <td>
-                    Repuestos
+                    {{ $service->name }}
                 </td>
                 <td class="cell-numeric">
-                    {{ amount_format($work->labour) }}
+                    {{ amount_format($service->pivot->amount) }}
                 </td>
                 <td class="cell-numeric">
-                    {{ amount_format($work->labour) }}
+                    {{ amount_format($service->pivot->amount) }}
                 </td>
             </tr>
+                
+            @endforeach
+
             <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>

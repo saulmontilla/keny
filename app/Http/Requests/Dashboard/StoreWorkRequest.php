@@ -25,12 +25,13 @@ class StoreWorkRequest extends FormRequest
             'plate' => ['required', 'string', 'max:15'],
             'vehicle' => ['required', 'integer'],
             'date' => ['required', 'date'],
-            'description' => ['required', 'string'],
-            'servicesWithAmount' => ['required', 'array'],
-            'servicesWithAmount.*.id' => ['required', 'integer'],
-            'servicesWithAmount.*.base_amount' => ['required', 'numeric'],
-            'labour' => ['required', 'numeric'],
-            'materials' => ['required', 'numeric'],
+            'description' => ['string', 'nullable'],
+            'services' => ['required', 'array'],
+            'services.*.id' => ['required', 'integer'],
+            'services.*.amount' => ['required', 'numeric'],
+            'services.*.name' => ['required', 'string'],
+            'services.*.rendersInPdf' => ['required', 'boolean'],
+            'services.*.type' => ['required', 'numeric'],
         ];
     }
 }

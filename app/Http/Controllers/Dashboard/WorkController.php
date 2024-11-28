@@ -39,8 +39,29 @@ class WorkController extends Controller
     {
         $work = $work->load(['vehicle.brand', 'vehicle.model', 'services']);
         $work->loadSum('services as total_service_amount', 'service_work.amount');
-        $work->totalService = $work->total_service_amount + $work->materials;
-        $work->total = $work->totalService + $work->labour;
+
+        $hiddenCosts = $work->services->filter(function ($service) {
+            return $service->pivot->renders_in_pdf == 0;
+        })->sum(function ($service) {
+            return $service->pivot->amount;
+        });
+
+        $labourServices = $work->services->filter(function ($service) {
+            return $service->service_type_id == 1 && $service->pivot->renders_in_pdf == 1;
+        });
+
+        $labourCost = $labourServices->sum(function ($service) {
+            return $service->pivot->amount;
+        });
+
+        $enumerableServices = $work->services->filter(function ($service) {
+            return $service->pivot->renders_in_pdf == 1 && $service->service_type_id != 1;
+        });
+
+        $work->labourServices = $labourServices;
+        $work->enumerableServices = $enumerableServices;
+        $work->totalLabour = $labourCost + $hiddenCosts;
+        $work->total = $work->total_service_amount;
         $work->code = str_pad($work->id, 6, '0', STR_PAD_LEFT);
 
         $pdf = $workRepository->print($work);

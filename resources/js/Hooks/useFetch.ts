@@ -11,11 +11,11 @@ export type UseFetchResponse<T> = [
     T,
     boolean,
     boolean,
-    FetchRequest,
+    FetchRequest<T>,
     boolean
 ]
 
-type FetchRequest = (config?: AxiosRequestConfig) => void
+type FetchRequest<T> = (config?: AxiosRequestConfig) => Promise<T>
 
 export default function useFetch<T>(options: Options<T>): UseFetchResponse<T> {
     const { url, initialValue } = options
@@ -24,24 +24,28 @@ export default function useFetch<T>(options: Options<T>): UseFetchResponse<T> {
     const [error, setError] = useState(false)
     const [finished, setFinished] = useState(false)
 
-    const fetchRequest: FetchRequest = (config) => {
-        setError(false)
-        setLoading(true)
-        setFinished(false)
+    const fetchRequest = (config?: AxiosRequestConfig): Promise<T> => {
+        setError(false);
+        setLoading(true);
+        setFinished(false);
 
-        axios.get<T>(url, config)
-            .then(response => {
-                setResponse(response.data)
-                setLoading(false)
-            })
-            .catch(() => {
-                setLoading(false)
-                setError(true)
-            })
-            .finally(() => {
-                setFinished(true)
-            })
-    }
+        return new Promise((resolve, reject) => {
+            axios.get<T>(url, config)
+                .then(response => {
+                    setResponse(response.data);
+                    setLoading(false);
+                    resolve(response.data);
+                })
+                .catch(error => {
+                    setLoading(false);
+                    setError(true);
+                    reject(error);
+                })
+                .finally(() => {
+                    setFinished(true);
+                });
+        });
+    };
 
     return [
         response as T,
